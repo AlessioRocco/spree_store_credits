@@ -26,7 +26,7 @@ module Spree
 
     def collection
       # TODO: PMG - Figure out how we can integrate with accessible_by
-      Spree::StoreCredit.all.page(params[:page] || 1)
+      Spree::StoreCredit.where(user_id: params[:user_id]).page(params[:page] || 1)
     end
 
     def permitted_store_credit_attributes
